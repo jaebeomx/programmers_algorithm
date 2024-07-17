@@ -3,18 +3,16 @@ const readline = require('readline');
 
 (async () => {
 	let rl = readline.createInterface({ input: process.stdin });
-	let starLine= 0;
+	let count= null;
 	
 	for await (const line of rl) {
-		starLine= +line;
-		for(let i=1; i<=starLine; i++){
-			let str= "";
-			for(let j=1; j<=i; j++){
-				str+="*";
-			}
-			console.log(str);
-		}
+		count= line;
 		rl.close();
+	}
+	
+	for(let i=1; i<=count; i++){
+		let str= "*".repeat(i);
+		console.log(str);
 	}
 	
 	process.exit();
